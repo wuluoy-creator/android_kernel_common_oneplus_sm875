@@ -3236,6 +3236,8 @@ void hmbird_cancel_fork(struct task_struct *p)
 
 void hmbird_free(struct task_struct *p)
 {
+    if (!get_hmbird_ts(p))
+		return;
 	unsigned long flags;
 	struct hmbird_entity *see = get_hmbird_ts(p);
 
